@@ -1,0 +1,25 @@
+name: Spec
+version: '${project.version}'
+main: me.evito.spec.Spec
+api-version: 1.17
+prefix: Spec
+authors: [ Evito ]
+description: Allow players to enter spectator mode.
+commands:
+  spec:
+    aliases:
+      - c
+      - spectator
+    description: Enter and leave spectator mode
+    permission: spec.use
+permissions:
+  spec.*:
+    default: false
+  spec.help:
+    default: true
+  spec.use:
+    default: true
+  spec.stay:
+    default: false
+  spec.bypass:
+    default: false
