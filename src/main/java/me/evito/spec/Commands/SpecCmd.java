@@ -43,7 +43,7 @@ public class SpecCmd implements CommandExecutor{
 
             // If they are not in Spectator already
             if(player.getGameMode() != GameMode.SPECTATOR){
-                if (!player.isOnGround() && player.hasPermission("spec.bypass")){
+                if (!player.isOnGround() && !player.hasPermission("spec.bypass")){
                     sender.sendMessage(ChatColor.RED + plugin.getConfig().getString("in-air"));
                     return true;
                 }
