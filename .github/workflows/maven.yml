@@ -28,5 +28,5 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: jar
-        path: target/spec-1.1.1.jar
+        path: target/spec-**.jar
         retention-days: 5
