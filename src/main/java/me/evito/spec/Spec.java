@@ -48,7 +48,7 @@ public final class Spec extends JavaPlugin implements Listener {
     }
 
     public void saveSpecs(){
-        this.getLogger().log(Level.INFO, getConfig().getString("saving-message"));
+        this.getLogger().log(Level.INFO, getConfig().getString("saving-message.message"));
         for (Map.Entry<UUID, Object[]> entry : specs.entrySet()) {
             data.getConfig().set("specs." + entry.getKey(), entry.getValue());
         }

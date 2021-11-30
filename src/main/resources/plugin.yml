@@ -23,3 +23,9 @@ permissions:
     default: false
   spec.bypass:
     default: false
+  spec.bypass.in-air:
+    default: false
+  spec.others:
+    default: false
+  spec.reload:
+    default: false

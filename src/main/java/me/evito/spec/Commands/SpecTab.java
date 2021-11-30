@@ -17,6 +17,12 @@ public class SpecTab implements TabCompleter {
         if(sender.hasPermission("spec.stay")){
             arguments.add("stay");
         }
+        if(sender.hasPermission("spec.reload")){
+            arguments.add("reload");
+        }
+        if(sender.hasPermission("spec.others")){
+            arguments.add("player");
+        }
 
         List<String> result = new ArrayList<String>();
         if (args.length == 1) {
