@@ -1,0 +1,7 @@
+name: Survival Spectator
+version: '${project.version}'
+main: me.evito.survivalspectator.survivalspectator.SurvivalSpectator
+api-version: 1.17
+prefix: sSpec
+authors: [ Evito ]
+description: A Minecraft plugin which alows players to enter spectator mode,
