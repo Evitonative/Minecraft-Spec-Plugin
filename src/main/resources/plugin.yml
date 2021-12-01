@@ -4,4 +4,31 @@ main: me.evito.survivalspectator.survivalspectator.SurvivalSpectator
 api-version: 1.17
 prefix: sSpec
 authors: [ Evito ]
-description: A Minecraft plugin which alows players to enter spectator mode,
+description: A Minecraft plugin which alows players to enter spectator mode.
+commands:
+  spec:
+    aliases:
+      - c
+      - s
+      - spectator
+    description: Enter and leave spectator mode
+    permission: spec.use
+permissions:
+  spec.*:
+    default: false
+  spec.help:
+    default: true
+  spec.use:
+    default: true
+  spec.admin:
+    default: false
+  spec.admin.stay:
+    default: false
+  spec.admin.bypass:
+    default: false
+  spec.admin.bypass.in-air:
+    default: false
+  spec.admin.bypass.in-water:
+    default: false
+  spec.admin.bypass.in-lava:
+    default: false
