@@ -1,8 +1,10 @@
-# Minecraft-Spec-Plugin
+# Minecraft-Spec-Plugin v2 dev
+**This is readme is not up-to-date with development of this branch..**
+
 This Minecraft 1.17 - 1.18 plugin allow players on a server to enter spectator mode using a command. If they use the command again they will leave spectator mode and will be teleported back to their original position. Additionaly all effects, remaining air bubbles, gamemode and the time on fire will be restored.
 
 ## Commands
-- `/c`, `/spec` or `/spectator` to enter spectator mode
+- `/c`, `/s`, `/spec` or `/spectator` to enter spectator mode
 - `/c stay`, `/spec stay` oder `/spectator stay` to stay where you are currently in spectator mode (Admin command)
 
 ## Permission
