@@ -1,5 +1,10 @@
+#Survival Spectator Mode Configuration
+
+#Message configuration
+#Note: You can use &coloecode to style you messages
 messages:
   #Message for /spec help
+  #Use %perm.PERMISSION to require a permission to be shown
   help: |
     &e========= Survival Spectatormode Help =========
     %perm.use&7/%command &8-&r toggle between spectator and your last gamemode
@@ -8,7 +13,7 @@ messages:
     %perm.stay&7/%command stay &8-&r Same as /gamemode [INSERT LAST GAMEMODE HERE]
     %perm.reload&7/%command reload &8-&r Reloads the plugin
     &e========= Survival Spectatormode Help =========
-  #Message when the console uses the command
+  #Message shown if the consle trys to use this command in it self
   player-only: "&cYou can only use this command as a player"
-  #Message when an error occurs
+  #Message shown if an error occurs
   error: "&cAn error occurred. Please try again later. If this problem persists please contact your administrator."
