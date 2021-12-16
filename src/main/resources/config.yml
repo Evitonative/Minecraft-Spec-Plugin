@@ -1,0 +1,14 @@
+messages:
+  #Message for /spec help
+  help: |
+    &e========= Survival Spectatormode Help =========
+    %perm.use&7/%command &8-&r toggle between spectator and your last gamemode
+    %perm.help&7/%command help &8-&r Get this message
+    %perm.use&7/%command use &8-&r The as if you wrote nothing
+    %perm.stay&7/%command stay &8-&r Same as /gamemode [INSERT LAST GAMEMODE HERE]
+    %perm.reload&7/%command reload &8-&r Reloads the plugin
+    &e========= Survival Spectatormode Help =========
+  #Message when the console uses the command
+  player-only: "&cYou can only use this command as a player"
+  #Message when an error occurs
+  error: "&cAn error occurred. Please try again later. If this problem persists please contact your administrator."

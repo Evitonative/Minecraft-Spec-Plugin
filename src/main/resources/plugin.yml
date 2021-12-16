@@ -10,6 +10,7 @@ commands:
     aliases:
       - c
       - s
+      - spec
       - spectator
     description: Enter and leave spectator mode
     permission: spec.use

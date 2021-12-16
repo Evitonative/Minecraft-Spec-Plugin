@@ -1,5 +1,6 @@
 package me.evito.survivalspectator.survivalspectator;
 
+import me.evito.survivalspectator.survivalspectator.commands.CommandHandler;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.HashMap;
@@ -25,10 +26,6 @@ public final class SurvivalSpectator extends JavaPlugin{
         this.getServer().getPluginManager().registerEvents(saving, this);
 
         spectators = saving.loadSpectators();
-
-        //TODO: Rely implement this; this is just a test
-        ExtraConfiguration demo = new ExtraConfiguration(this, "demo.yml");
-        demo.saveDefaultConfig();
 
         //Initialise the command
         this.getCommand("spec").setExecutor((new CommandHandler(this)));

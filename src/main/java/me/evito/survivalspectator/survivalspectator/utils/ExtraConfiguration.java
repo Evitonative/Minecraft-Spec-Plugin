@@ -1,5 +1,6 @@
-package me.evito.survivalspectator.survivalspectator;
+package me.evito.survivalspectator.survivalspectator.utils;
 
+import me.evito.survivalspectator.survivalspectator.SurvivalSpectator;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -42,7 +43,7 @@ public class ExtraConfiguration {
     }
 
     public void saveConfig() {
-        if(this.dataConfig == null || this.dataConfig == null)
+        if(this.dataConfig == null)
             return;
 
         try {
@@ -61,3 +62,8 @@ public class ExtraConfiguration {
         }
     }
 }
+
+/*TODO
+ * Allow saving comments
+ * Or maybe not...
+ */
