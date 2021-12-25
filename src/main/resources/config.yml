@@ -6,14 +6,18 @@ messages:
   #Message for /spec help
   #Use %perm.PERMISSION to require a permission to be shown
   help: |
-    &e========= Survival Spectatormode Help =========
-    %perm.use&7/%command &8-&r toggle between spectator and your last gamemode
-    %perm.help&7/%command help &8-&r Get this message
-    %perm.use&7/%command use &8-&r The as if you wrote nothing
-    %perm.stay&7/%command stay &8-&r Same as /gamemode [INSERT LAST GAMEMODE HERE]
-    %perm.reload&7/%command reload &8-&r Reloads the plugin
+    &e========= Survival Spectatormode Help =========&r
+    %perm.spec.use%&7/%command &8-&r toggle between spectator and your last gamemode
+    %perm.spec.help%&7/%command help &8-&r Get this message
+    %perm.spec.use%&7/%command use &8-&r Same as &7/c
+    %perm.spec.stay%&7/%command stay &8-&r Sets you back to your last gamemode without teleport
+    %perm.spec.reload%&7/%command reload &8-&r Reloads the plugin
     &e========= Survival Spectatormode Help =========
   #Message shown if the consle trys to use this command in it self
   player-only: "&cYou can only use this command as a player"
   #Message shown if an error occurs
   error: "&cAn error occurred. Please try again later. If this problem persists please contact your administrator."
+  #No permissions for any command
+  no-permissions: "&4You do not have the permissions to use any command!"
+  #No permissions for specific command
+  no-permission: "&4You do not have the permissions to use this command!"

@@ -5,8 +5,9 @@ import me.evito.survivalspectator.survivalspectator.utils.ChatMessage;
 import org.bukkit.command.Command;
 import org.bukkit.entity.Player;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Commands {
 
@@ -24,18 +25,51 @@ public class Commands {
         String message = messages.fromConfigParseAmpersand("messages.help");
         message = message.replace("%command", label);
 
-        List<String> msg = Arrays.asList(message.split("\n"));
-        List<Integer> remove = new List<Integer>();
-        for (int i = 0; i < msg.size(); i++) {
+        ArrayList<String> msg = new ArrayList<>(Arrays.asList(message.split("\n")));
+
+        //Regex pattern to find permissions in string
+        final Pattern permPatter = Pattern.compile("%perm(\\..+?)*%");
+
+        for (int i = msg.size() - 1; i >= 0; i--) {
             String line = msg.get(i);
-            if(line.contains("%perm.use") && !player.hasPermission("spec.use")) remove.add(i); //TODO FIX, do not remove in loop but outside
-            else if(line.contains("%perm.help") && !player.hasPermission("spec.help")) msg.remove(i);
-            else if(line.contains("%perm.stay") && !player.hasPermission("spec.stay")) msg.remove(i);
-            else if(line.contains("%perm.reload") && !player.hasPermission("spec.reload")) msg.remove(i);
+            System.out.println(line);
+
+            Matcher matcher = permPatter.matcher(line);
+
+            int start;
+            int end;
+            String subString = "";
+
+            while (matcher.find()){
+                start = matcher.start();
+                end = matcher.end();
+                subString = line.substring(matcher.start(), matcher.end());
+            }
+
+            if(subString.equals(""))
+                continue;
+
+            subString = subString.replace("%perm.", "").replace("%", "");
+
+            if(!player.hasPermission(subString)){
+                msg.remove(i);
+                continue;
+            }
+
+            //Remove the permission form the message send to the player
+            line = line.replace("%perm." + subString + "%", "");
+            msg.set(i, line);
         }
 
+        //If player has no permisions for the plugin
+        if(msg.toArray().length == 2){
+            msg.add(1, messages.fromConfigParseAmpersand("messages.no-permissions"));
+        }
+
+        //Add all lines to a single string to send to the player
         message = String.join("\n", msg);
 
+        //Send message
         player.sendMessage(message);
         return true;
     }
@@ -45,6 +79,13 @@ public class Commands {
     }
 
     public boolean reload(Player player, SurvivalSpectator plugin, String[] args) {
-        return true; //TODO
+        if(!player.hasPermission("spec.reload")){
+            player.sendMessage(messages.fromConfigParseAmpersand("messages.no-permission"));
+            return true;
+        }
+
+        plugin.reloadConfig(); //TODO Change so it actually works and add message
+
+        return true;
     }
 }
