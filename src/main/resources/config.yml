@@ -1,10 +1,49 @@
-#Spec commands
-#Enable Features
-allow-stay: true
+#Survival Spectator Mode Configuration
+#DO NOT CHANGE THE VERSION MANUALLY
+version: 2.0.0
 
-#Message Configuration
-saving-message: Saving speced players
-not-in-console: This does not work in console
-no-permissions: "I'm sorry, but you do not have permission to perform this command. Please contact your server administrators if you believe that this is a mistake."
-no-location: "You have entered spectator without using /c. You will be teleported to your respawn point."
-in-air: You have to touch the ground to use this command.
+MySQL:
+  #recommended - will use sqlite if false
+  enabled: false
+  uri: localhost
+  port: 3306
+  database: minecraft
+  user: minecraft
+  password: password
+
+#Removes player who have left the server from memory, but loads them back as they join.
+#This may increase CPU usage on world-saves and player joins, but deduce memory usage
+remove-disconnected-players: true
+
+#requirements which must be meet to use the command
+Requirements:
+  #You can bypass all requirements by having the spec.bypass permission
+  bypassable: true
+  #Player must touch the ground meaning they cont use it in the air, underwater oder in lava.
+  onGround: true
+  #Player must not burn - Remaining time on fire will always be restored after player leaves spec
+  notOnFire: false
+
+#Message configuration
+#Note: You can use &coloecode to style you messages
+messages:
+  #Message for /spec help
+  #Use %perm.PERMISSION to require a permission to be shown
+  help: |
+    &e========= Survival Spectatormode Help =========&r
+    %perm.spec.use%&7/%command &8-&r toggle between spectator and your last gamemode
+    %perm.spec.help%&7/%command help &8-&r Get this message
+    %perm.spec.use%&7/%command use &8-&r Same as &7/c
+    %perm.spec.stay%&7/%command stay &8-&r Sets you back to your last gamemode without teleport
+    %perm.spec.reload%&7/%command reload &8-&r Reloads the plugin
+    &e========= Survival Spectatormode Help =========
+  #Message shown if the consle trys to use this command in it self
+  player-only: "&cYou can only use this command as a player"
+  #Message shown when player is not on ground and does not meet conditions to bypass
+  not-on-ground: "&cYou must be touching the ground to use this command."
+  #Message shown when player is not on ground and does not meet conditions to bypass
+  not-on-fire: "&cYou must not be on fire to use this command."
+  #Message send to player if data retrieval from Database failed.
+  error-could-not-load-player: "&cYour spectator data could not be loaded. If you cannot leave spectator mode, please contact your administrator."
+  #Message shown when an unknown error occurs
+  error: "&cAn error occurred. Please try again later. If this problem persists please contact your administrator."

@@ -1,14 +1,16 @@
-name: Spec
+name: SurvivalSpectator
 version: '${project.version}'
-main: me.evito.spec.Spec
+main: me.evito.survivalspectator.survivalspectator.SurvivalSpectator
 api-version: 1.17
-prefix: Spec
+prefix: sSpec
 authors: [ Evito ]
-description: Allow players to enter spectator mode.
+description: A Minecraft plugin which alows players to enter spectator mode.
 commands:
   spec:
     aliases:
       - c
+      - s
+      - spec
       - spectator
     description: Enter and leave spectator mode
     permission: spec.use
@@ -19,7 +21,15 @@ permissions:
     default: true
   spec.use:
     default: true
-  spec.stay:
+  spec.admin:
     default: false
-  spec.bypass:
+  spec.admin.stay:
+    default: false
+  spec.admin.bypass:
+    default: false
+  spec.admin.bypass.in-air:
+    default: false
+  spec.admin.bypass.in-water:
+    default: false
+  spec.admin.bypass.in-lava:
     default: false
