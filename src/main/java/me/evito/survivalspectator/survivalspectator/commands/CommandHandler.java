@@ -28,7 +28,7 @@ public class CommandHandler implements CommandExecutor {
                 "survivalspectator:s",
                 "survivalspectator:spec",
                 "survivalspectator:spectator"
-        }; //TODO: Config param?
+        }; //TODO: Config param? - What?
         this.messages = new ChatMessage(plugin.getConfig());
         this.commands = new Commands(messages);
     }
@@ -54,15 +54,15 @@ public class CommandHandler implements CommandExecutor {
         final Player player = (Player) sender;
 
         //Commands
-        if(args.length <= 0) return commands.use(player, plugin, args);
+        if(args.length <= 0) return commands.use(player, plugin, command, args);
         switch (args[0]){
-            case "use": return commands.use(player, plugin, args);
-            case "help": return commands.help(player, plugin, args, label);
-            case "stay": return commands.stay(player, plugin, args);
-            case "reload": return commands.reload(player, plugin, args);
+            case "use": return commands.use(player, plugin, command, args);
+            case "help": return commands.help(player, plugin, command, args, label);
+            case "stay": return commands.stay(player, plugin, command, args);
+            case "reload": return commands.reload(player, plugin, command, args);
             default:
-                if(player.hasPermission("spec.help")) return commands.help(player, plugin, args, label);
-                else if(player.hasPermission("spec.use")) return commands.use(player, plugin, args);
+                if(player.hasPermission("spec.help")) return commands.help(player, plugin, command, args, label);
+                else if(player.hasPermission("spec.use")) return commands.use(player, plugin, command, args);
                 else {
                     player.sendMessage(messages.fromConfigParseAmpersand("messages.error"));
                     return true;

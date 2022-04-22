@@ -11,7 +11,7 @@
 
     <name>Survival Spectator</name>
 
-    <description>A Minecraft plugin which alows players to enter spectator mode,</description>
+    <description>A Minecraft plugin which allows players to enter sepectator mode,</description>
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -24,8 +24,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
+                    <source>15</source>
+                    <target>15</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -70,6 +70,16 @@
             <artifactId>spigot-api</artifactId>
             <version>1.17.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.xerial</groupId>
+            <artifactId>sqlite-jdbc</artifactId>
+            <version>3.36.0.3</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.28</version>
         </dependency>
     </dependencies>
 </project>

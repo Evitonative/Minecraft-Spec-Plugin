@@ -1,4 +1,28 @@
 #Survival Spectator Mode Configuration
+#DO NOT CHANGE THE VERSION MANUALLY
+version: 2.0.0
+
+MySQL:
+  #recommended - will use sqlite if false
+  enabled: false
+  uri: localhost
+  port: 3306
+  database: minecraft
+  user: minecraft
+  password: password
+
+#Removes player who have left the server from memory, but loads them back as they join.
+#This may increase CPU usage on world-saves and player joins, but deduce memory usage
+remove-disconnected-players: true
+
+#requirements which must be meet to use the command
+Requirements:
+  #You can bypass all requirements by having the spec.bypass permission
+  bypassable: true
+  #Player must touch the ground meaning they cont use it in the air, underwater oder in lava.
+  onGround: true
+  #Player must not burn - Remaining time on fire will always be restored after player leaves spec
+  notOnFire: false
 
 #Message configuration
 #Note: You can use &coloecode to style you messages
@@ -15,9 +39,11 @@ messages:
     &e========= Survival Spectatormode Help =========
   #Message shown if the consle trys to use this command in it self
   player-only: "&cYou can only use this command as a player"
-  #Message shown if an error occurs
+  #Message shown when player is not on ground and does not meet conditions to bypass
+  not-on-ground: "&cYou must be touching the ground to use this command."
+  #Message shown when player is not on ground and does not meet conditions to bypass
+  not-on-fire: "&cYou must not be on fire to use this command."
+  #Message send to player if data retrieval from Database failed.
+  error-could-not-load-player: "&cYour spectator data could not be loaded. If you cannot leave spectator mode, please contact your administrator."
+  #Message shown when an unknown error occurs
   error: "&cAn error occurred. Please try again later. If this problem persists please contact your administrator."
-  #No permissions for any command
-  no-permissions: "&4You do not have the permissions to use any command!"
-  #No permissions for specific command
-  no-permission: "&4You do not have the permissions to use this command!"
