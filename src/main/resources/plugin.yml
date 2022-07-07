@@ -20,6 +20,6 @@ permissions:
   spec.use:
     default: true
   spec.stay:
-    default: false
+    default: op
   spec.bypass:
-    default: false
+    default: op
